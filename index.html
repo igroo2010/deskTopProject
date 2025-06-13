@@ -1,0 +1,76 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CalorieCam AI</title>
+  <link rel="stylesheet" href="./index.css">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: {
+              light: '#6EE7B7', // Emerald 300
+              DEFAULT: '#10B981', // Emerald 500
+              dark: '#047857',  // Emerald 700
+            },
+            secondary: {
+              light: '#FDE68A', // Amber 200
+              DEFAULT: '#F59E0B', // Amber 500
+              dark: '#B45309', // Amber ㅁ
+            }
+          },
+          fontFamily: {
+            sans: ['Inter', 'sans-serif'],
+          },
+        }
+      }
+    }
+  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script type="importmap">
+{
+  "imports": {
+    "react": "https://esm.sh/react@18.2.0",
+    "react/jsx-runtime": "https://esm.sh/react@18.2.0/jsx-runtime",
+    "react-dom/client": "https://esm.sh/react-dom@18.2.0/client",
+    "@google/genai": "https://esm.sh/@google/genai@1.4.0",
+    "react/": "https://esm.sh/react@^19.1.0/",
+    "react-dom/": "https://esm.sh/react-dom@^19.1.0/"
+  }
+}
+</script>
+<script>
+  // !!! 중요: 로컬 테스트 및 개발용입니다. !!!
+  // !!! 프로덕션 환경에서는 API 키를 클라이언트 사이드 코드에 직접 노출하는 것은 매우 위험합니다. !!!
+  // 실제 Gemini API 키로 "AIzaSyCjlh2_R80ZPiUus5_vuZ20Hsm_hxgXqZY" 부분을 교체해주세요.
+  window.process = {
+    env: {
+      API_KEY: "AIzaSyCjlh2_R80ZPiUus5_vuZ20Hsm_hxgXqZY" // 실제 API 키를 사용하세요.
+    }
+  };
+
+  // Babel 전역 설정: ES 모듈을 그대로 사용하고, 최신 브라우저를 대상으로 함
+  // window.BabelOptions 대신 window.BabelPresets를 사용하고, 프리셋 배열을 직접 할당합니다.
+  window.BabelPresets = [
+    ['env', { modules: false, bugfixes: true, targets: { esmodules: true } }],
+    'react',
+    'typescript'
+  ];
+</script>
+<script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+<link rel="stylesheet" href="./index.css">
+</head>
+<body class="bg-slate-50 text-slate-800">
+  <div id="root"></div>
+  <!-- 
+    index.tsx 로드 경로를 상대 경로("index.tsx")로 설정합니다.
+    data-presets 속성은 window.BabelPresets (이전 BabelOptions)로 대체되었으므로 제거합니다.
+  -->
+  <script type="text/babel" data-type="module" src="index.tsx"></script>
+<script type="module" src="./index.tsx"></script>
+</body>
+</html>

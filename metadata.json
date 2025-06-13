@@ -1,0 +1,8 @@
+{
+  "name": "CalorieCam AI",
+  "description": "An application that estimates food calories from a photo using AI. Users can take a picture or upload an image to get a calorie breakdown.",
+  "requestFramePermissions": [
+    "camera"
+  ],
+  "prompt": ""
+}
